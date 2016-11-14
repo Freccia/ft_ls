@@ -6,7 +6,7 @@
 #    By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/06 16:11:25 by lfabbro           #+#    #+#              #
-#    Updated: 2016/09/22 13:23:41 by lfabbro          ###   ########.fr        #
+#    Updated: 2016/11/14 19:47:15 by lfabbro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ LIB_NAMES = ftprintf
 
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
-INC_PATH = ./includes/
+INC_PATH = ./includes/ ./libft/includes/
 LIB_PATH = ./libft/
 
 CC = @gcc
