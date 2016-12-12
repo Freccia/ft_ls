@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 16:39:02 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/23 20:10:11 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/23 16:30:08 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/23 16:33:38 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+size_t			ft_tablen(char **tab)
 {
-	if (s)
+	size_t		len;
+
+	len = 0;
+	if (tab)
 	{
-		while (*s)
+		while (*tab)
 		{
-			if (*s == ((char)c))
-				return (((char *)s));
-			s++;
+			++tab;
+			++len;
 		}
-		if (c == '\0')
-			return (((char *)s));
 	}
-	return (0);
+	return (len);
 }

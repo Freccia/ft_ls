@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 16:39:02 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/23 20:10:11 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/25 18:34:23 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/12/06 15:53:56 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+int			ft_isalpha_str(char *str)
 {
-	if (s)
+	while (*str)
 	{
-		while (*s)
-		{
-			if (*s == ((char)c))
-				return (((char *)s));
-			s++;
-		}
-		if (c == '\0')
-			return (((char *)s));
+		if (!ft_isalpha(*str) && !ft_isdigit(*str) && \
+				*str != '_' && *str != '-')
+			return (0);
+		++str;
 	}
-	return (0);
+	return (1);
 }

@@ -29,7 +29,7 @@ int				a_ptr(t_struct *st)
 	char		*ptr;
 
 	st->stargs.ptr = (void*)va_arg(st->args, void *);
-	len = unbr_lenght((uintmax_t)st->stargs.ptr, 16);
+	len = unbr_lenght((unsigned long long)st->stargs.ptr, 16);
 	ptr = ft_uimaxtoa_base((long long)st->stargs.ptr, 16, 'a');
 	st->flags.padchar = (st->flags.zero) ? '0' : ' ';
 	if (st->flags.padchar == '0')
@@ -38,8 +38,8 @@ int				a_ptr(t_struct *st)
 	if (st->flags.padchar == ' ')
 		st->pc += ft_putstr("0x");
 	precision_ptr(st, len);
-	if ((st->stargs.ptr > 0) ||
-			(st->stargs.ptr == 0 && st->flags.precision >= 0))
+	if (((long)st->stargs.ptr > 0) ||
+			((long)st->stargs.ptr == 0 && st->flags.precision >= 0))
 		st->pc += ft_putstr(ptr) + 1;
 	padding_right(st, len + 2);
 	free(ptr);

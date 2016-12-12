@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_issticky.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 16:39:02 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/23 20:10:11 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/29 17:26:21 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/29 17:27:19 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+#include <sys/stat.h>
+
+int			ft_issticky(char *path)
 {
-	if (s)
-	{
-		while (*s)
-		{
-			if (*s == ((char)c))
-				return (((char *)s));
-			s++;
-		}
-		if (c == '\0')
-			return (((char *)s));
-	}
+	struct stat	buf;
+
+	if (lstat(path, &buf) == -1)
+		return (0);
+	if ((buf.st_mode & S_ISUID) || (buf.st_mode & S_ISGID))
+		return (1);
 	return (0);
 }

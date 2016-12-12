@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_tabdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 16:39:02 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/23 20:10:11 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/23 16:41:05 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/25 18:27:22 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+char		**ft_tabdup(char **tab)
 {
-	if (s)
+	char	**dup;
+	int		i;
+
+	i = 0;
+	if ((dup = ft_tabnew(ft_tablen(tab))) == NULL)
+		return (NULL);
+	while (tab[i])
 	{
-		while (*s)
-		{
-			if (*s == ((char)c))
-				return (((char *)s));
-			s++;
-		}
-		if (c == '\0')
-			return (((char *)s));
+		dup[i] = ft_strdup(tab[i]);
+		++i;
 	}
-	return (0);
+	dup[i] = NULL;
+	return (dup);
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 16:39:02 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/23 20:10:11 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/21 18:57:53 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/28 13:12:30 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+void		ft_free_tab(char **tab)
 {
-	if (s)
+	int		i;
+
+	i = 0;
+	if (tab != NULL)
 	{
-		while (*s)
+		while (tab[i] != NULL)
 		{
-			if (*s == ((char)c))
-				return (((char *)s));
-			s++;
+			free(tab[i]);
+			++i;
 		}
-		if (c == '\0')
-			return (((char *)s));
+		free(tab);
 	}
-	return (0);
 }

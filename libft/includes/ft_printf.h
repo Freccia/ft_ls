@@ -61,8 +61,8 @@ typedef struct		s_args
 	char			ch;
 	wchar_t			*wstr;
 	wchar_t			wchar;
-	intmax_t		nbr;
-	uintmax_t		u_nbr;
+	long long		nbr;
+	long long		u_nbr;
 	void			*ptr;
 }					t_args;
 
@@ -139,7 +139,7 @@ void				set_init_st(t_struct *st, const char *format);
 */
 int					str_lenght(t_struct *st);
 int					wstr_lenght(t_struct *st);
-int					nbr_lenght(intmax_t nbr, int base);
-int					unbr_lenght(uintmax_t nbr, int base);
+int					nbr_lenght(long long nbr, int base);
+int					unbr_lenght(long long nbr, int base);
 
 #endif

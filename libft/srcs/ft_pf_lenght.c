@@ -66,7 +66,7 @@ int			str_lenght(t_struct *st)
 	return (len);
 }
 
-int			nbr_lenght(intmax_t nbr, int base)
+int			nbr_lenght(long long nbr, int base)
 {
 	int		lenght;
 
@@ -83,7 +83,7 @@ int			nbr_lenght(intmax_t nbr, int base)
 	return (lenght);
 }
 
-int			unbr_lenght(uintmax_t nbr, int base)
+int			unbr_lenght(long long nbr, int base)
 {
 	int		lenght;
 

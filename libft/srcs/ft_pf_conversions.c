@@ -16,7 +16,7 @@ int				conversion_di(t_struct *st)
 {
 	if (st->lmod.j)
 	{
-		st->stargs.nbr = (intmax_t)va_arg(st->args, intmax_t);
+		st->stargs.nbr = (long long)va_arg(st->args, long long);
 	}
 	else if (st->lmod.ll)
 	{
@@ -45,7 +45,7 @@ int				conversion_oux(t_struct *st)
 {
 	if (st->lmod.j)
 	{
-		st->stargs.u_nbr = (uintmax_t)va_arg(st->args, uintmax_t);
+		st->stargs.u_nbr = (long long)va_arg(st->args, long long);
 	}
 	else if (st->lmod.ll || st->lmod.z)
 	{

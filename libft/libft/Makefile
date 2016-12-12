@@ -30,6 +30,9 @@ SRC = ft_strlen.c\
 		ft_isascii.c\
 		ft_isprint.c\
 		ft_isnbr.c\
+		ft_isalpha_str.c\
+		ft_issticky.c\
+		ft_isexec.c\
 		ft_toupper.c\
 		ft_tolower.c\
 		ft_memset.c\
@@ -52,12 +55,24 @@ SRC = ft_strlen.c\
 		ft_strsub.c\
 		ft_strjoin.c\
 		ft_strtrim.c\
+		ft_strxtrim.c\
+		ft_strxtrim_quote.c\
 		ft_strsplit.c\
+		ft_strsplit_quote.c\
+		ft_tablen.c\
+		ft_tabnew.c\
+		ft_tabcpy.c\
+		ft_tabdup.c\
+		ft_tabndup.c\
+		ft_tabcat.c\
+		ft_tabpop.c\
+		ft_free_tab.c\
 		ft_itoa.c\
 		ft_putchar.c\
 		ft_putstr.c\
 		ft_putendl.c\
 		ft_putnbr.c\
+		ft_puttab.c\
 		ft_putchar_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
@@ -83,7 +98,7 @@ SRC = ft_strlen.c\
 OBJ = $(SRC:.c=.o)
 
 $(NAME) :
-	@echo "\x1b[44;32m Making libft \x1b[0m"
+	@echo "\033[32;44m Making libft \033[0m"
 	@make $(OBJ)
 	@ar -rcs $(NAME) $(OBJ)
 	@ranlib $(NAME)

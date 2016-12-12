@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = libft.a
 
 SRC_NAME = ft_printf.c ft_pf_lenght.c ft_pf_parse.c ft_pf_set.c\
 		   ft_pf_padding.c ft_pf_conversions.c ft_pf_handle_wchar.c\
@@ -23,16 +23,22 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ_LIB_NAME = ft_strlen.o ft_strstr.o ft_strcpy.o ft_strdup.o ft_strndup.o\
 			   ft_strcat.o ft_strcmp.o ft_strncpy.o ft_strncat.o ft_strlcat.o\
 			   ft_strchr.o ft_strrchr.o ft_strnstr.o ft_strncmp.o ft_atoi.o\
-			   ft_itoa_base.o ft_imaxtoa_base.o ft_uimaxtoa_base.o ft_isalpha.o\
-			   ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o\
-			   ft_tolower.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
+			   ft_itoa_base.o ft_imaxtoa_base.o ft_uimaxtoa_base.o ft_itoa.o\
+			   ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o\
+			   ft_issticky.o ft_isalpha_str.o ft_isexec.o\
+			   ft_toupper.o ft_tolower.o\
+			   ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 			   ft_memmove.o ft_memchr.o ft_memcmp.o ft_memdel.o ft_strnew.o\
 			   ft_strdel.o ft_strclr.o ft_striter.o ft_striteri.o ft_strmap.o\
 			   ft_strmapi.o ft_strequ.o ft_strnequ.o ft_strsub.o ft_strjoin.o\
-			   ft_strtrim.o ft_strsplit.o ft_itoa.o ft_putchar.o ft_putstr.o\
-			   ft_putendl.o ft_putnbr.o ft_putchar_fd.o ft_putendl_fd.o\
-			   ft_putnbr_fd.o ft_putstr_fd.o ft_memalloc.o ft_lstnew.o\
-			   ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o\
+			   ft_strtrim.o ft_strxtrim.o ft_strsplit.o\
+			   ft_strsplit_quote.o ft_strxtrim_quote.o\
+			   ft_free_tab.o ft_tablen.o ft_tabnew.o ft_tabdup.o ft_tabndup.o\
+			   ft_tabcpy.o ft_tabcat.o ft_tabpop.o\
+			   ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o ft_puttab.o\
+			   ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o\
+			   ft_memalloc.o\
+			   ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o\
 			   ft_lstmap.o ft_wstrlen.o ft_abs.o ft_swap.o\
 			   ft_realloc.o ft_getnbr.o ft_wchar_size.o\
 			   ft_nbrlen.o ft_getchar.o ft_getchar.o\
@@ -42,7 +48,7 @@ OBJ_LIB_NAME = ft_strlen.o ft_strstr.o ft_strcpy.o ft_strdup.o ft_strndup.o\
 LIB_NAME = ft
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
-INC_PATH = ./includes/
+INC_PATH = ./includes ./libft
 LIB_PATH = ./libft/
 
 CC = @gcc
@@ -68,7 +74,7 @@ all :
 	@make $(NAME)
 
 $(NAME): 
-	@echo "\x1b[44m\x1b[32m Making libftprintf \x1b[0m\x1b[0m"
+	@echo "\033[32;44m Making libprintf \033[0m"
 	@make $(OBJ_PRINTF)
 	@ar -rcs $(NAME) $(OBJ_LIBFT) $(OBJ_PRINTF)
 	@ranlib $(NAME)
@@ -78,12 +84,10 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean : libclean
-	@echo "\x1b[44m\x1b[31m Removing libftprintf objects\x1b[0m\x1b[0m"
 	@/bin/rm -f $(OBJ_PRINTF)
 	@/bin/rm -rf $(OBJ_PATH)
 
 fclean : libfclean clean
-	@echo "\x1b[44m\x1b[31m Removing libftprintf archive\x1b[0m\x1b[0m"
 	@/bin/rm -f $(NAME)
 
 libclean :

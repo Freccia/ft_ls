@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_tabcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 16:39:02 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/11/23 20:10:11 by lfabbro          ###   ########.fr       */
+/*   Created: 2016/11/24 16:39:39 by lfabbro           #+#    #+#             */
+/*   Updated: 2016/11/28 12:12:44 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+char		**ft_tabcpy(char **dst, char **src)
 {
-	if (s)
+	int		i;
+
+	i = -1;
+	if (src && dst)
 	{
-		while (*s)
+		while (src[++i])
 		{
-			if (*s == ((char)c))
-				return (((char *)s));
-			s++;
+			dst[i] = ft_strdup(src[i]);
 		}
-		if (c == '\0')
-			return (((char *)s));
+		dst[i] = NULL;
 	}
-	return (0);
+	return (dst);
 }

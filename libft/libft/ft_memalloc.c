@@ -21,10 +21,8 @@
 
 void	*ft_memalloc(size_t size)
 {
-	int		i;
 	void	*space;
 
-	i = 0;
 	space = NULL;
 	if (size == 0 || (space = malloc(size)) == NULL)
 		return (NULL);
