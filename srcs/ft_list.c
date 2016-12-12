@@ -52,9 +52,9 @@ t_data				*ft_newdata(char *name, char *dir, int opt)
 	}
 	else
 		lstat(name, &lbuf);
-	new->time = (opt & CTIME) ? lbuf.st_ctimespec : lbuf.st_mtimespec;
-	new->time = (opt & ATIME) ? lbuf.st_atimespec : new->time;
-	new->time = (opt & BTIME) ? lbuf.st_birthtimespec : new->time;
+	new->time = (opt & CTIME) ? lbuf.st_ctim : lbuf.st_mtim;
+	new->time = (opt & ATIME) ? lbuf.st_atim : new->time;
+	//new->time = (opt & BTIME) ? lbuf.st_birthtim : new->time;
 	ft_set_newdata(&new, lbuf);
 	return (new);
 }

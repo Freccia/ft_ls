@@ -28,7 +28,7 @@
 **     		+perror.
 ** stdlib.h		:
 **     		+malloc, +free, +exit.
-** sys/acl.h	:
+** sys/acl.h // sys/types	:
 **     		+acl_get_file, +acl_free.
 ** sys/ioctl.h	:
 **     		-ioctl.
@@ -49,6 +49,7 @@
 # include <sys/stat.h>
 # include <sys/xattr.h>
 # include <sys/acl.h>
+# include <sys/types.h>
 # include <unistd.h>
 # include "libft.h"
 

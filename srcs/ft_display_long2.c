@@ -24,9 +24,7 @@ void				ft_padding_majmin(int m, int pad)
 
 void				ft_display_uid(char *uid, int pad)
 {
-	int			p;
-
-	p = ft_printf(" %s", uid);
+	ft_printf(" %s", uid);
 	pad -= ft_strlen(uid);
 	while (pad-- >= 0)
 		ft_putchar(' ');
@@ -34,9 +32,7 @@ void				ft_display_uid(char *uid, int pad)
 
 void				ft_display_gid(char *gid, int pad)
 {
-	int			p;
-
-	p = ft_printf(" %s ", gid);
+	ft_printf(" %s ", gid);
 	pad -= ft_strlen(gid);
 	while (pad-- > 0)
 		ft_putchar(' ');

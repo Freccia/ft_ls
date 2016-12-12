@@ -16,9 +16,9 @@ int						ft_acl(char *path)
 {
 	acl_t			md;
 
-	if (listxattr(path, NULL, 0, XATTR_NOFOLLOW) > 0)
+	if (listxattr(path, NULL, 0) > 0)
 		return (ft_putchar('@'));
-	if ((md = acl_get_file(path, ACL_TYPE_EXTENDED)))
+	if ((md = acl_get_file(path, ACL_TYPE_ACCESS)))
 	{
 		acl_free((void *)md);
 		return (ft_putchar('+'));
@@ -54,7 +54,7 @@ void					ft_tot_blocks(t_data **data, int opt, int iftot)
 			ret = lstat(ptr->name, &buf);
 		}
 		if (ptr->name[0] != '.' || opt & ALL)
-			iftot = (iftot > 0) ? ++iftot : 0;
+			iftot += (iftot > 0) ? 1 : 0;
 		if (ptr->name[0] != '.' || opt & ALL)
 			tot += buf.st_blocks;
 		ptr = ptr->next;

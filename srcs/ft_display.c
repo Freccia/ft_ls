@@ -15,11 +15,9 @@
 static void			ft_put(t_data *data, int opt)
 {
 	t_data			*ptr;
-	char			*ln;
 	struct stat		buf;
 
 	ptr = data;
-	ln = NULL;
 	while (ptr)
 	{
 		if (ptr->path && lstat(ptr->path, &buf) < 0)

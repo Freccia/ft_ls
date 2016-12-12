@@ -28,11 +28,11 @@ SRC_NAME = ft_ls.c ft_data.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-LIB_NAMES = ftprintf
+LIB_NAMES = ft acl
 
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
-INC_PATH = ./includes/ ./libft/includes/
+INC_PATH = ./includes ./libft/includes ./libft/libft
 LIB_PATH = ./libft/
 
 CC = @gcc
@@ -53,19 +53,19 @@ all:
 	@make $(NAME)
 
 $(NAME):
-	@echo "\x1b[44;32m Making $(NAME) \x1b[0m"
-	$(CC) $(CFLAGS) $(INC) $(LIB_LINK) $(LIB) $(SRC) -o $(NAME)
+	@echo "\033[44;32m Making $(NAME) \033[0m"
+	$(CC) $(CFLAGS) $(INC) $(SRC) -o $(NAME) $(LIB_LINK) $(LIB)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $^
 
 clean:
-	@echo "\x1b[44;31m Removing $(NAME) objects \x1b[0m"
+	@echo "\033[44;31m Removing $(NAME) objects \033[0m"
 	@/bin/rm -fr $(OBJ_PATH)
 
 fclean: libfclean clean
-	@echo "\x1b[44;31m Removing $(NAME) executable \x1b[0m"
+	@echo "\033[44;31m Removing $(NAME) executable \033[0m"
 	@/bin/rm -f $(NAME)
 
 libre:
