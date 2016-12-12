@@ -18,7 +18,7 @@ int						ft_acl(char *path)
 
 	if (listxattr(path, NULL, 0) > 0)
 		return (ft_putchar('@'));
-	if ((md = acl_get_file(path, ACL_TYPE_ACCESS)))
+	if ((md = acl_get_file(path, ACL_TYPE_DEFAULT)) != NULL)
 	{
 		acl_free((void *)md);
 		return (ft_putchar('+'));
