@@ -25,12 +25,14 @@ static int		precision_ptr(t_struct *st, int len)
 
 int				a_ptr(t_struct *st)
 {
-	int			len;
-	char		*ptr;
+	int				len;
+	char			*ptr;
+	unsigned long	n_ptr;
 
+	n_ptr = (unsigned long)st->stargs.ptr;
 	st->stargs.ptr = (void*)va_arg(st->args, void *);
-	len = unbr_lenght((unsigned long long)st->stargs.ptr, 16);
-	ptr = ft_uimaxtoa_base((long long)st->stargs.ptr, 16, 'a');
+	len = unbr_lenght(n_ptr, 16);
+	ptr = ft_uimaxtoa_base(n_ptr, 16, 'a');
 	st->flags.padchar = (st->flags.zero) ? '0' : ' ';
 	if (st->flags.padchar == '0')
 		st->pc += ft_putstr("0x");
