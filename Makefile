@@ -53,7 +53,7 @@ all:
 	@make $(NAME)
 
 $(NAME):
-	@echo "\x1b[44;32m Making $(NAME) \x1b[0m"
+	@echo -e "\x1b[44;32m Making $(NAME) \x1b[0m"
 	$(CC) $(CFLAGS) $(INC) $(LIB_LINK) $(LIB) $(SRC) -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -61,11 +61,11 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $^
 
 clean:
-	@echo "\x1b[44;31m Removing $(NAME) objects \x1b[0m"
+	@echo -e "\x1b[44;31m Removing $(NAME) objects \x1b[0m"
 	@/bin/rm -fr $(OBJ_PATH)
 
 fclean: libfclean clean
-	@echo "\x1b[44;31m Removing $(NAME) executable \x1b[0m"
+	@echo -e "\x1b[44;31m Removing $(NAME) executable \x1b[0m"
 	@/bin/rm -f $(NAME)
 
 libre:

@@ -68,7 +68,7 @@ all :
 	@make $(NAME)
 
 $(NAME): 
-	@echo "\x1b[44m\x1b[32m Making libftprintf \x1b[0m\x1b[0m"
+	@echo -e "\x1b[44m\x1b[32m Making libftprintf \x1b[0m\x1b[0m"
 	@make $(OBJ_PRINTF)
 	@ar -rcs $(NAME) $(OBJ_LIBFT) $(OBJ_PRINTF)
 	@ranlib $(NAME)
@@ -78,12 +78,12 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean : libclean
-	@echo "\x1b[44m\x1b[31m Removing libftprintf objects\x1b[0m\x1b[0m"
+	@echo -e "\x1b[44m\x1b[31m Removing libftprintf objects\x1b[0m\x1b[0m"
 	@/bin/rm -f $(OBJ_PRINTF)
 	@/bin/rm -rf $(OBJ_PATH)
 
 fclean : libfclean clean
-	@echo "\x1b[44m\x1b[31m Removing libftprintf archive\x1b[0m\x1b[0m"
+	@echo -e "\x1b[44m\x1b[31m Removing libftprintf archive\x1b[0m\x1b[0m"
 	@/bin/rm -f $(NAME)
 
 libclean :
