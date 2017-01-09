@@ -53,7 +53,7 @@ all:
 	@make $(NAME)
 
 $(NAME):
-	@echo "\033[44;32m Making $(NAME) \033[0m"
+	@echo -e "\033[44;32m Making $(NAME) \033[0m"
 	$(CC) $(CFLAGS) $(INC) $(SRC) -o $(NAME) $(LIB_LINK) $(LIB)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -61,11 +61,11 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $^
 
 clean:
-	@echo "\033[44;31m Removing $(NAME) objects \033[0m"
+	@echo -e "\033[44;31m Removing $(NAME) objects \033[0m"
 	@/bin/rm -fr $(OBJ_PATH)
 
 fclean: libfclean clean
-	@echo "\033[44;31m Removing $(NAME) executable \033[0m"
+	@echo -e "\033[44;31m Removing $(NAME) executable \033[0m"
 	@/bin/rm -f $(NAME)
 
 libre:
